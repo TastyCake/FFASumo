@@ -21,11 +21,7 @@ public class Match {
         playersInArena.put(arena, test);
     }
     public String getPlayerInMatch(Player player) {
-        if (playerInMatch.get(player) == null || Objects.equals(playerInMatch.get(player), "none")) {
-            return "none";
-        } else {
-            return playerInMatch.get(player);
-        }
+        return playerInMatch.getOrDefault(player, "none");
     }
     public void removePlayer(Player player, String match) {
         playerInMatch.put(player, "none");

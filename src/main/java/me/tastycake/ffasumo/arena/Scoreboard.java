@@ -49,9 +49,15 @@ public class Scoreboard extends ScoreboardUtil {
             List<String> objects = new ArrayList<>();
             objects.add("&8&m-------------------------");
             objects.add("&bTop kills: ");
-            objects.add("&6" + highPlayer.getName() + ": " + highKills);
-            objects.add("&6" + secPlayer.getName() + ": " + secHighKills);
-            objects.add("&6" + thirdPlayer.getName() + ": " + thirdHighKills);
+            if (highPlayer != null) {
+                objects.add("&6" + highPlayer.getName() + ": " + highKills);
+            }
+            if (secPlayer != null) {
+                objects.add("&6" + secPlayer.getName() + ": " + secHighKills);
+            }
+            if (thirdPlayer != null) {
+                objects.add("&6" + thirdPlayer.getName() + ": " + thirdHighKills);
+            }
             objects.add("");
             objects.add("&8&m-------------------------&7");
             return objects;

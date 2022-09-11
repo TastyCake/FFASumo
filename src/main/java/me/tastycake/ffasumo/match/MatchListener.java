@@ -2,6 +2,7 @@ package me.tastycake.ffasumo.match;
 
 import me.tastycake.ffasumo.config.ConfigManager;
 import me.tastycake.ffasumo.utils.config.CustomConfig;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -10,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +24,11 @@ public class MatchListener extends Match implements Listener {
     FileConfiguration config = ConfigManager.getConfig("arenas");
 
     me.tastycake.ffasumo.data.Player data = new me.tastycake.ffasumo.data.Player();
+
+    @EventHandler
+    public void Debug(PlayerMoveEvent e) {
+        e.getPlayer().sendMessage(getPlayerInMatch((Player) e.getPlayer()));
+    }
 
     @EventHandler
     public void damage(EntityDamageByEntityEvent e) {

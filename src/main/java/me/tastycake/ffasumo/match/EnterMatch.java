@@ -18,14 +18,13 @@ public class EnterMatch extends Match {
     public EnterMatch(Player player, String match) {
         if (getPlayers(match).size() < arenas.getConfig().getInt("arenas." + match + ".maxPlayers")) {
             if (Objects.equals(getPlayerInMatch(player), "none") || getPlayerInMatch(player) == null) {
-                Bukkit.broadcastMessage(getPlayerInMatch(player));
-                addPlayer(player, match);
-                Bukkit.broadcastMessage(getPlayerInMatch(player));
                 player.teleport((Location) arenas.getConfig().get("arenas." + match + ".spawn"));
                 // player.setBedSpawnLocation((Location) arenas.getConfig().get("arenas." + match + ".spawn"));
                 player.sendMessage(Chat.code("&aYou entered " + match + " arena!"));
                 player.setGameMode(GameMode.SURVIVAL);
+                player.setHealth(20);
                 new Scoreboard();
+                addPlayer(player, match);
             } else {
                 player.sendMessage(Chat.code("&cYou already in a match!"));
             }
