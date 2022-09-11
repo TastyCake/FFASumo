@@ -1,0 +1,8 @@
+name: FFA Sumo
+version: '${project.version}'
+main: me.tastycake.ffasumo.Main
+authors: [ TastyCake ]
+description: FFA Sumo minigame plugin
+commands:
+  joinmatch:
+  arena:
